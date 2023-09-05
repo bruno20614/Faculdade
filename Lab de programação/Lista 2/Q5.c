@@ -5,13 +5,17 @@
       puts ("Digite um número");
     scanf("%d",&num);
     if (cont=0){
-      maior=num;
+      menor=maior=num;
     }
      if (maior<num){
        maior=num;
      } 
-       printf("O maior número é %d \n",maior);
+     if(menor>num){
+        menor=num;
+     }
+       
           cont++;     
             }        
+            printf(O
  return 0;
             }
