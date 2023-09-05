@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define TAM 75
 
-int main(int argc, char const *argv[])
+int main()
 {
     for (int i = 0; i < TAM; i++)
     {
