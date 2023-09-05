@@ -3,7 +3,7 @@
 int main(void) {
   
   long double somatorio=1,inicio=1;
-  for(int i=1;i<=TAM;i++){
+  for(int i=2;i<=TAM;i++){
 
     inicio = inicio*2;
       somatorio+=inicio;
