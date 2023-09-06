@@ -1,21 +1,17 @@
+
 #include <stdio.h>
-  int main(){
-   int maior, num,cont;
-    while(1){
-      puts ("Digite um número");
-    scanf("%d",&num);
-    if (cont=0){
-      menor=maior=num;
-    }
-     if (maior<num){
-       maior=num;
-     } 
-     if(menor>num){
-        menor=num;
-     }
-       
-          cont++;     
-            }        
-            printf(O
- return 0;
-            }
+
+int main(int argc, char const *argv[])
+{
+    int n,maior = 0,menor = 0;
+    do
+    {
+        puts("Insira um valor para n");
+        scanf("%d",&n);
+        if(n ==0) continue;
+        n > maior ? (maior = n) : (menor =n);
+    } while (n!=0);
+    printf("O maior valor fornecido foi: %d\nO menor valor fornecido foi: %d",maior,menor);
+    
+    return 0;
+}
