@@ -3,7 +3,7 @@ algarismos 7.*/
 
 #include <stdio.h>
 
-int main(int argc, char const *argv[])
+int main()
 {
     int n, contador;
     puts("Insira um numero");
