@@ -3,7 +3,7 @@ expoente que varie do valor 0 a 7.*/
 
 #include <stdio.h>
 #include <math.h>
-int main(int argc, char const *argv[])
+int main()
 {
     for (int i = 0; i < 7; i++) printf("3 elevado a %d e: %.0f\n",i, pow(3,i));
     return 0;
