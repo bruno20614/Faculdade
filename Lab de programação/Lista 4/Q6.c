@@ -1,24 +1,20 @@
 #include <stdio.h>
-
-void copiarString(char *destino, const char *origem) {
-    while (*origem != '\0') {
-        *destino = *origem;
-        destino++;
-        origem++;
-    }
-    *destino = '\0'; 
+void copiarString(char *copiarDaqui, char *colarAqui){
+  while(*copiarDaqui != '\0'){
+    *colarAqui = *copiarDaqui;
+    ++copiarDaqui;
+    ++colarAqui;
+  }
+  *colarAqui = '\0';
 }
 
-int main() {
-    char origem[100];
-    char destino[100];
+int main(void){
+  char *copiarDaqui, *colarAqui;
+  char string [] = "Pao com mortadela";
+  char string2[20];
 
-    printf("Digite uma string de origem: ");
-    scanf("%s", origem);
+  copiarString(string,string2);
+  printf("%s\n",string2);
 
-    copiarString(destino, origem);
-
-    printf("A string de destino copiada é: %s\n", destino);
-
-    return 0;
+  getchar();
 }
