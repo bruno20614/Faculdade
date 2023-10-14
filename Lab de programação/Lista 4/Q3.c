@@ -1,28 +1,24 @@
 #include <stdio.h>
 
-int main() {
-    int numero;
-    int menor;
-    int *p_menor = &menor; 
-    int criterio = 0;
-  
-    menor = 2147483647;
-
-    while (1) {
-        printf("Digite um número (para encerrar, digite %d): ", criterio);
-        scanf("%d", &numero);
-
-        if (numero == criterio) {
-            printf("Programa encerrado.\n");
-            break;
-        }
-
-        if (numero < *p_menor) {
-            *p_menor = numero; 
-        }
-
-        printf("Menor valor até agora: %d\n", *p_menor);
+int main(void){
+  int d = 0, a = 0, cont = 0,*p1 = NULL, *p2 = NULL;
+  char c = 'S';
+  while (c == 'S'){
+    p1 = &d;
+    p2 = &a;
+    puts("Digite um número inteiro:");
+    scanf("%d",p1);
+    if (cont == 0){
+      *p2 = *p1;
     }
-
-    return 0;
+    cont +=1;
+    if (*p2 > *p1){
+      *p2 = *p1;
+    }
+    printf("O menor valor digitado ate agora foi: %d\n",*p2);
+    printf("Deseja continuar ? [S/N]");
+    scanf(" %c",&c);
+    
+    }
+  return 0;
 }
