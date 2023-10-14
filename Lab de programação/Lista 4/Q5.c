@@ -1,22 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 
-int tamanhoDaString(const char *str) {
-    const char *p = str; 
-    while (*p != '\0') {
-        p++; 
-    }
-    return p - str; 
-}
-
-int main() {
-    char minhaString[100]; 
-
-    printf("Digite uma string: ");
-    scanf("%s", minhaString);
-
-    int tamanho = tamanhoDaString(minhaString);
-
-    printf("O tamanho da string é: %d\n", tamanho);
-
-    return 0;
+int main(){
+  char *gets(char *nome);
+  char nome[80];
+  printf("Digite o seu nome completo: ");
+  gets(nome);
+  printf("Nome completo: %s",nome);
+  printf("\n Número de caracteres: %ld",strlen(nome));
+  return 0;
 }
