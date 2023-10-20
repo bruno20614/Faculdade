@@ -11,17 +11,16 @@ int contaRecorrencia(int *, int *, int ,int, int);
 
 int main(int argc, char const *argv[])
 {
-    //int X[T], Y[T];
     int **p = NULL;
     p = calloc(N * N, sizeof(int));
     srand(time(NULL));
     int X[] = {4, 6, 2, 3, 2, 3, 0, 2, 5, 5, 2, 6, 0, 5};
     int Y[] = {3, 6, 2, 1, 0, 2, 1, 3, 5, 5, 3, 4, 1, 5};
-    // gerarVetor(X, T, N);
-    // imprimirVetor(X, T);
+     gerarVetor(X, T, N);
+    imprimirVetor(X, T);
 
-    // gerarVetor(Y, T, N);
-    // imprimirVetor(Y, T);
+     gerarVetor(Y, T, N);
+     imprimirVetor(Y, T);
 
     preencherM(p, N * N, X, Y, T);
 
@@ -81,12 +80,12 @@ void preencherM(int *p, int t, int *x, int *y, int txy)
     int verx = 0;
     int very = 0;
 
-    //very = contaRecorrencia(y, *(y + 1), txy);
+    very = contaRecorrencia(y, *(y + 1), txy);
 
     for (int i = 0; i < t; i++)
     {
-        //*(p + i) = rand() % N-1;
-        // verx = contaRecorrencia(y, *(x + i), txy);
+        *(p + i) = rand() % N-1;
+         verx = contaRecorrencia(y, *(x + i), txy);
         very = contaRecorrencia(x, y, *(y + i), *(x + i), txy);
         if (very > 0 && *(y + i)!=0 && *(x + i) !=0)
         {
