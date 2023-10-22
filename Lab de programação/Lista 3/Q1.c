@@ -1,26 +1,29 @@
 #include <stdio.h>
-#include <stdlib.h>
-#define TAM 15
-int main(){
-    int a, maior=0, menor=0;
-    float Notas[TAM];
 
-    printf("digite 15 notas");
-    printf("\n");
-    for (a=0;a<TAM;a++){
-      printf("nota %d : ", a+1);
-      scanf("%f", &Notas[a]);
-      if(a==0){maior=Notas[a];menor=Notas[a];}
-      if(Notas[a]>maior){
-        maior=Notas[a];
-      }
-      else{
-        if(Notas[a]<menor){
-            menor=Notas[a];
-        }
-      }
+int main() {
+    float vetor[15];
+    float menor, maior;
+
+    for (int i = 0; i < 15; i++) {
+        printf("Digite o %dº elemento: ", i + 1);
+        scanf("%f", &vetor[i]);
     }
-    printf("\no maior valor é %d\n", maior);
-    printf("\ne o menor valor é %d\n\n", menor);
+
+    menor = vetor[0];
+    maior = vetor[0];
+
+    for (int i = 1; i < 15; i++) {
+        if (vetor[i] < menor) {
+            menor = vetor[i];
+        }
+        if (vetor[i] > maior) {
+            maior = vetor[i];
+        }
+    }
+
+    float soma = menor + maior;
+    printf("A soma do menor elemento (%.2f) e do maior elemento (%.2f) é: %.2f\n", menor, maior, soma);
+
     return 0;
 }
+
