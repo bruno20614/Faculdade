@@ -37,7 +37,7 @@ int alocarBlocoBestFit(BlocoLivre** cabeca, int tamanho) {
     }
 
     if (!melhorAjuste)
-        return 0;  // Não há bloco disponível para alocar.
+        return 0;  
 
     if (melhorAjuste->tamanho == tamanho) {
         if (!anterior)
@@ -53,7 +53,35 @@ int alocarBlocoBestFit(BlocoLivre** cabeca, int tamanho) {
         melhorAjuste->proximo = novoBloco;
     }
 
-    return 1;  // Alocação bem-sucedida.
+    return 1; 
+}
+
+int alocarBlocoFirstFit(BlocoLivre** cabeca, int tamanho) {
+    BlocoLivre* atual = *cabeca;
+    BlocoLivre* anterior = NULL;
+
+    while (atual) {
+        if (atual->tamanho >= tamanho) {
+            if (atual->tamanho == tamanho) {
+                if (!anterior)
+                    *cabeca = atual->proximo;
+                else
+                    anterior->proximo = atual->proximo;
+            } else {
+                BlocoLivre* novoBloco = malloc(sizeof(BlocoLivre));
+                novoBloco->tamanho = tamanho;
+                novoBloco->proximo = atual->proximo;
+
+                atual->tamanho -= tamanho;
+                atual->proximo = novoBloco;
+            }
+            return 1;  
+        }
+        anterior = atual;
+        atual = atual->proximo;
+    }
+
+    return 0;  
 }
 
 int main() {
@@ -71,8 +99,8 @@ int main() {
 
             switch (escolha) {
                 case 1:
-                    if (!alocarBlocoBestFit(&memoria, tamanho))
-                        printf("Não há espaço livre suficiente para alocar %d bytes usando Best-Fit.\n", tamanho);
+                    if (!alocarBlocoFirstFit(&memoria, tamanho))
+                        printf("Não há espaço livre suficiente para alocar %d bytes usando First-Fit.\n", tamanho);
                     break;
                 case 2:
                     if (!alocarBlocoBestFit(&memoria, tamanho))
