@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 typedef struct BlocoLivre {
     int tamanho;
     struct BlocoLivre* proximo;
@@ -21,33 +22,38 @@ void exibirBlocosLivres(BlocoLivre* cabeca) {
     printf("Fim\n");
 }
 
-int alocarBloco(BlocoLivre** cabeca, int tamanho) {
+int alocarBlocoBestFit(BlocoLivre** cabeca, int tamanho) {
     BlocoLivre* atual = *cabeca;
     BlocoLivre* anterior = NULL;
+    BlocoLivre* melhorAjuste = NULL;
 
-    while (atual && atual->tamanho < tamanho) {
+    while (atual) {
+        if (atual->tamanho >= tamanho && (!melhorAjuste || atual->tamanho < melhorAjuste->tamanho)) {
+            melhorAjuste = atual;
+            anterior = anterior;
+        }
         anterior = atual;
         atual = atual->proximo;
     }
 
-    if (!atual)
-        return 0;  
+    if (!melhorAjuste)
+        return 0;  // Não há bloco disponível para alocar.
 
-    if (atual->tamanho == tamanho) {
+    if (melhorAjuste->tamanho == tamanho) {
         if (!anterior)
-            *cabeca = atual->proximo;
+            *cabeca = melhorAjuste->proximo;
         else
-            anterior->proximo = atual->proximo;
+            anterior->proximo = melhorAjuste->proximo;
     } else {
         BlocoLivre* novoBloco = malloc(sizeof(BlocoLivre));
         novoBloco->tamanho = tamanho;
-        novoBloco->proximo = atual->proximo;
+        novoBloco->proximo = melhorAjuste->proximo;
 
-        atual->tamanho -= tamanho;
-        atual->proximo = novoBloco;
+        melhorAjuste->tamanho -= tamanho;
+        melhorAjuste->proximo = novoBloco;
     }
 
-    return 1;  
+    return 1;  // Alocação bem-sucedida.
 }
 
 int main() {
@@ -65,11 +71,12 @@ int main() {
 
             switch (escolha) {
                 case 1:
-                    if (!alocarBloco(&memoria, tamanho))
-                        printf("Não há espaço livre suficiente para alocar %d bytes.\n", tamanho);
+                    if (!alocarBlocoBestFit(&memoria, tamanho))
+                        printf("Não há espaço livre suficiente para alocar %d bytes usando Best-Fit.\n", tamanho);
                     break;
                 case 2:
-                  m
+                    if (!alocarBlocoBestFit(&memoria, tamanho))
+                        printf("Não há espaço livre suficiente para alocar %d bytes usando Best-Fit.\n", tamanho);
                     break;
                 default:
                     printf("Escolha inválida. Tente novamente.\n");
