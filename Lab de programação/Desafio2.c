@@ -31,7 +31,7 @@ int alocarBloco(BlocoLivre** cabeca, int tamanho) {
     }
 
     if (!atual)
-        return 0;  // Não há espaço suficiente
+        return 0;  
 
     if (atual->tamanho == tamanho) {
         if (!anterior)
@@ -47,7 +47,7 @@ int alocarBloco(BlocoLivre** cabeca, int tamanho) {
         atual->proximo = novoBloco;
     }
 
-    return 1;  // Alocado com sucesso
+    return 1;  
 }
 
 int main() {
@@ -69,7 +69,7 @@ int main() {
                         printf("Não há espaço livre suficiente para alocar %d bytes.\n", tamanho);
                     break;
                 case 2:
-                    // Adicione aqui a chamada para alocar usando Best-Fit
+                  m
                     break;
                 default:
                     printf("Escolha inválida. Tente novamente.\n");
