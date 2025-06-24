@@ -6,6 +6,12 @@ def Foo(A, n):
     
     return Foo(A, n//2) + Foo(A, n//2 +1) + Foo(A, n//2 + 2) + A[n-1]
 
+''''
+em que A  ́e um vetor com posi ̧c ̃oes de 1 at ́e n. Justificando sua resposta, diga se o
+algoritmo acima possui sobreposi ̧c ̃ao de subproblemas. Em caso positivo, mostre
+um algoritmo com memoiza ̧c ̃ao para evitar recalcular subproblemas.
+'''''
+
 A = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 n = 10
 
