@@ -27,7 +27,7 @@ def memoized_cut_rod_aux(p, n, r):
 
 def memoized_cut_road(p,n):
     r = [-float('inf')] * (n+1)
-    s = [0] * (n + 1) 
+    s = [0] * (n + 1) # adicionei a solução ótima possivel
 
     val = memoized_cut_road_aux(p,n,r,s)
     print("Cortes da solução ótima:")
