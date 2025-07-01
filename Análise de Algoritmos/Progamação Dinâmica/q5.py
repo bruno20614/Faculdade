@@ -30,16 +30,13 @@ def AlocaçãoDinamica(C):
     if n == 1:
         return C[0], [0]
     
-
-    #ok agora precisamos ver se começamos em C[0] ou C[1]
-
-    #mas antes precissamos escrever os locais para guardar o dp
-
     dp = [0] * n
     prev = [-1] * n
 
     dp[0] = C[0]
-    dp[1] = C[1]
+    dp[1] = min(C[0], C[1])
+    prev[0] = -1
+    prev[1] = 0 if C[0] < C[1] else 1
 
     for i in range (2,n):
         if dp[i - 1] < dp[i - 2]:

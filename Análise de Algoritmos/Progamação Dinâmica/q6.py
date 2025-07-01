@@ -24,12 +24,12 @@ def max_subrray(R):
 
     start = 0
     end = 0
-    s = 0 # inicio do subvetor atual
+    s = 0 
 
     for i in range(1,n):
         if R[i] > max_ending_here + R[i]:
             max_ending_here = R[i]
-            s += 1
+            s = i
         else:
             max_ending_here += R[i]
 

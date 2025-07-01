@@ -38,7 +38,7 @@ def AlocacaoDinamica(T):
     if n == 1:
         return T[0], [0]
 
-    dp = [0] * n
+    dp = [0] * n  
     escolha = [False] * n  
 
     dp[0] = T[0]

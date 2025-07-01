@@ -4,6 +4,12 @@ ele retornar, al ́em do rendimento  ́otimo, o solu ̧c ̃ao  ́otima. Ou seja,
 mostrar (“printar”) os tamanhos das barras da solu ̧c ̃ao  ́otima.
 '''
 
+'''
+Modifique o algoritmo para resolver o problema das barras com memoiza ̧c ̃ao para
+ele retornar, al ́em do rendimento  ́otimo, o solu ̧c ̃ao  ́otima. Ou seja, sua solu ̧c ̃ao deve
+mostrar (“printar”) os tamanhos das barras da solu ̧c ̃ao  ́otima.
+'''
+
 def memoized_cut_rod(p, n):
     r = [-float('inf')] * (n + 1)
     return memoized_cut_rod_aux(p, n, r)
@@ -27,7 +33,7 @@ def memoized_cut_rod_aux(p, n, r):
 
 def memoized_cut_road(p,n):
     r = [-float('inf')] * (n+1)
-    s = [0] * (n + 1) # adicionei a solução ótima possivel
+    s = [0] * (n + 1) 
 
     val = memoized_cut_road_aux(p,n,r,s)
     print("Cortes da solução ótima:")

@@ -19,13 +19,12 @@ resultado = Foo(A, n)
 print(resultado)
 
 
-#Usando memoização, por que não memorização?
 def Foo(A, n,memo = None):
     if n <= 4:
         return 0
     
     if memo is None:
-        memo = {}
+        memo = {} 
   
     for n in memo:
       return memo[n]
